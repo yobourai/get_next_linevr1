@@ -6,14 +6,14 @@
 /*   By: yobourai <yobourai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 06:34:55 by yobourai          #+#    #+#             */
-/*   Updated: 2024/03/30 18:03:44 by yobourai         ###   ########.fr       */
+/*   Updated: 2024/03/30 21:37:04 by yobourai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef GET_NEXT_LINE
 # define GET_NEXT_LINE
 #ifndef BUFFER_SIZE 
-#define BUFFER_SIZE 899
+#define BUFFER_SIZE 100
 
 #endif
 #include <string.h>
@@ -29,5 +29,6 @@ int  ft_strchr(char *str);
 char    *ft_saveline(char *str);
 char *ft_newline(char *ptr);
 char *ft_strdup(char *ptr);
+void ft_free(char **str);
 
 #endif

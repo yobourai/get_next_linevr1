@@ -6,7 +6,7 @@
 /*   By: yobourai <yobourai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 06:34:21 by yobourai          #+#    #+#             */
-/*   Updated: 2024/03/30 17:48:18 by yobourai         ###   ########.fr       */
+/*   Updated: 2024/04/01 01:18:01 by yobourai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,24 @@ int ft_strlen(char *str)
         i++;
     return i ;
 }
+void ft_free(char **str)
+{
+    if(str && *str)
+    {
+        free(*str);
+        *str = NULL ;
+    }
+}
 char *ft_strjoin(char *ptr, char *str)
 {
     int i = 0;
     int j = 0;
 	int 	size;
 	char	*new;
-    if (!str && !ptr)
-        return NULL;
-    if(!ptr)
+    if(!ptr && str)
         return ft_strdup(str);
+    if (!ptr && !str)
+        return NULL ;
 	size = ft_strlen(str) + ft_strlen(ptr);
     new = malloc(size + 1);
     if(!new)
@@ -41,7 +49,6 @@ char *ft_strjoin(char *ptr, char *str)
         new[i] = ptr[i];
         i++;            
     }
-
     while(str && str[j])
         new[i++] = str[j++];
     new[size] = '\0';
